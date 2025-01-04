@@ -1,5 +1,6 @@
 backstage:
   ingress:
     enabled: true
-    className: nginx
+    className: traefik
     host: backstage.mycluster.localhost
+  clusterDomain: backstage.mycluster.localhost
