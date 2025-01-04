@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: backstage
+  namespace: argocd
+spec:                                                                                                      
+  project: 2025-backstage
+  source:
+    repoURL: https://github.com/medoni/2025-backstage.git
+    targetRevision: main
+    path: src/infrastructure/Kubernetes/helm/dev-local/backstage
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: 2025-backstage
+  syncPolicy:
+    automated: {}

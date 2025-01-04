@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: 2025-backstage
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Example deployment of Spotify`s backstage
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: 2025-backstage
+    server: https://kubernetes.default.svc
