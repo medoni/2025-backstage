@@ -1,4 +1,8 @@
 apiVersion: v2
 name: hello-world
 version: 0.1.0
-description: Hello World
+description: dev-local-backstage
+dependencies:
+  - name: backstage
+    version: 2.3.0
+    repository: https://backstage.github.io/charts
