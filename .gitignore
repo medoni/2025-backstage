@@ -1,0 +1,8 @@
+# Ignore IDE and Editor specific files
+.vs/
+.idea/
+*.sln.ide
+*.bkp
+
+# Ignore OS-specific files
+*.DS_Store
