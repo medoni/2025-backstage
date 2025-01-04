@@ -1,4 +1,5 @@
-ingress:
-  enabled: true
-  className: traefik
-  host: backstage.mycluster.localhost
+backstage:
+  ingress:
+    enabled: true
+    className: traefik
+    host: backstage.mycluster.localhost
