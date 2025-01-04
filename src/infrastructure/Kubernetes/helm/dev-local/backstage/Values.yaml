@@ -4,3 +4,11 @@ backstage:
     className: traefik
     host: backstage.mycluster.localhost
   clusterDomain: backstage.mycluster.localhost
+  serviceAccount:
+    create: true
+  backstage:
+    extraEnvVars:
+      - name: APP_CONFIG_app_baseUrl
+        value: http://backstage.mycluster.localhost/
+      - name: APP_CONFIG_backend_baseUrl
+        value: http://backstage.mycluster.localhost/
