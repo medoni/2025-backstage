@@ -31,8 +31,20 @@ backstage:
         listen:
           port: 7007
         database:
-          client: better-sqlite3
-          connection: ':memory:'
+          client: pg
+          connection:
+            host: postgres
+            port: 5432
+            user: 
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-db-secrets
+                  key: username
+            password:
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-db-secrets
+                  key: password
         cors:
           origin: http://localhost:3000
           methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
@@ -128,7 +140,7 @@ backstage:
             target: https://your.puppetdb.instance.com
 
       organization:
-        name: My Company
+        name: Squirrel-Soft
 
       # Reference documentation http://backstage.io/docs/features/techdocs/configuration
       # Note: After experimenting with basic setup, use CI/CD to generate docs
