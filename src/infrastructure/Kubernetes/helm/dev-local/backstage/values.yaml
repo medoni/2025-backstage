@@ -32,19 +32,12 @@ backstage:
           port: 7007
         database:
           client: pg
-          connection:
-            host: postgres
-            port: 5432
-            user: 
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-db-secrets
-                  key: username
-            password:
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-db-secrets
-                  key: password
+        connection:
+          host: postgres
+          port: 5432
+          user: ${POSTGRES_USER}
+          password: ${POSTGRES_PASSWORD}
+
         cors:
           origin: http://localhost:3000
           methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
@@ -57,6 +50,18 @@ backstage:
           allow:
             - host: example.com
             - host: '*.mozilla.org'
+        
+        extraEnvVars:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-db-secrets
+                key: username
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+            secretKeyRef:
+              name: postgres-db-secrets
+              key: password
         # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
       # See README.md in the proxy-backend plugin for information on the configuration format
