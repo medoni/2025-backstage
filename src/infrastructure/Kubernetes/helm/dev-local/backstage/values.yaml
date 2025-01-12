@@ -7,6 +7,7 @@ backstage:
   serviceAccount:
     create: true
   backstage:
+    revisionHistoryLimit: 0
     extraEnvVars:
     - name: POSTGRES_USER
       valueFrom:
@@ -15,9 +16,15 @@ backstage:
           key: username
     - name: POSTGRES_PASSWORD
       valueFrom:
-        secretKeyRef:  # Indentation was off here
+        secretKeyRef:
           name: postgres-db-secrets
           key: password
+
+    - name: GITHUB_TOKEN
+      valueFrom:
+        secretKeyRef:
+          name: backstage-secrets
+          key: GITHUB_TOKEN
 
     appConfig:
       app:
