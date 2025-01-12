@@ -14,12 +14,16 @@ backstage:
       pullPolicy: Always
     revisionHistoryLimit: 0
     extraEnvVars:
-    - name: POSTGRES_USER
+    - name: BACKEND_DATABASE_PG_HOST
+      value: postgres
+    - name: BACKEND_DATABASE_PG_PORT
+      value: "5432"
+    - name: BACKEND_DATABASE_PG_USER
       valueFrom:
         secretKeyRef:
           name: postgres-db-secrets
           key: username
-    - name: POSTGRES_PASSWORD
+    - name: BACKEND_DATABASE_PG_PASSWORD
       valueFrom:
         secretKeyRef:
           name: postgres-db-secrets

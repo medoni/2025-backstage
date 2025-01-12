@@ -1,6 +1,6 @@
 app:
   title: Scaffolded Backstage App
-  baseUrl: http://localhost:3000
+  baseUrl: ${APP_BASEURL}
 
 organization:
   name: Squirrel.Net dev
@@ -12,7 +12,7 @@ backend:
   # auth:
   #   keys:
   #     - secret: ${BACKEND_SECRET}
-  baseUrl: http://localhost:7007
+  baseUrl: ${BACKEND_BASEURL}
   listen:
     port: 7007
     # Uncomment the following host directive to bind to specific interfaces
@@ -28,8 +28,12 @@ backend:
   # This is for local development only, it is not recommended to use this in production
   # The production database configuration is stored in app-config.production.yaml
   database:
-    client: better-sqlite3
-    connection: ':memory:'
+    client: pg
+    connection:
+      host: ${BACKEND_DATABASE_PG_HOST}
+      port: ${BACKEND_DATABASE_PG_PORT}
+      user: ${BACKEND_DATABASE_PG_USER}
+      password: ${BACKEND_DATABASE_PG_PASSWORD}
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
