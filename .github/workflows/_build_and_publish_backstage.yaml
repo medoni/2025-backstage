@@ -16,6 +16,29 @@ jobs:
       with:
         fetch-depth: 0
     
+    - name: Set Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22.13
+    
+    - name: Run install
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: install --immutable
+        dir: src/backstage/n12-backstage
+    
+    - name: Run Yarn build:backend
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: build:backend
+        dir: src/backstage/n12-backstage
+    
+    - name: Run Yarn tsc
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: yarn tsc
+        dir: src/backstage/n12-backstage
+
     - name: Setup dotnet
       uses: actions/setup-dotnet@v4
       with:
