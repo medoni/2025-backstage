@@ -7,6 +7,10 @@ backstage:
   serviceAccount:
     create: true
   backstage:
+    image:
+      registry: ghcr.io
+      repository: medoni/2025-backstage/backstage
+      tag: 0.1.2
     revisionHistoryLimit: 0
     extraEnvVars:
     - name: POSTGRES_USER
