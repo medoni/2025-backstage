@@ -10,7 +10,7 @@ backstage:
     image:
       registry: ghcr.io
       repository: medoni/2025-backstage/backstage
-      tag: 0.1.2
+      tag: latest
       pullPolicy: Always
     revisionHistoryLimit: 0
     extraEnvVars:
