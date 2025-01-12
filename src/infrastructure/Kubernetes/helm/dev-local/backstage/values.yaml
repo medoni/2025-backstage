@@ -11,6 +11,7 @@ backstage:
       registry: ghcr.io
       repository: medoni/2025-backstage/backstage
       tag: 0.1.2
+      pullPolicy: Always
     revisionHistoryLimit: 0
     extraEnvVars:
     - name: POSTGRES_USER
@@ -44,22 +45,14 @@ backstage:
 
     appConfig:
       app:
-        title: My Backstage example
         baseUrl: http://backstage.mycluster.localhost
-        experimental:
-          packages: all # ✨
 
       backend:
         baseUrl: http://backstage.mycluster.localhost
-        listen:
-          port: 7007
         database:
           client: pg
           connection:
             host: postgres
             port: 5432
             user: ${POSTGRES_USER}
-            password: ${POSTGRES_PASSWORD}          
-
-      organization:
-        name: Squirrel-Soft
+            password: ${POSTGRES_PASSWORD}
