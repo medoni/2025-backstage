@@ -65,9 +65,13 @@ jobs:
     - name: Build Docker image
       run: |
         docker build \
+          -t ghcr.io/${{ github.repository }}/backstage:${{ env.version }} \
           -t ghcr.io/${{ github.repository }}/backstage:latest \
           -f src/backstage/n12-backstage/packages/backend/Dockerfile \
           src/backstage/n12-backstage
 
     - name: Push Docker image
+      run: docker push ghcr.io/${{ github.repository }}/backstage:${{ env.version }}
+    
+    - name: Push Docker image latest
       run: docker push ghcr.io/${{ github.repository }}/backstage:latest
