@@ -362,11 +362,15 @@ backstage:
           #   development:
           #     clientId: ${AUTH_GOOGLE_CLIENT_ID}
           #     clientSecret: ${AUTH_GOOGLE_CLIENT_SECRET}
-          # github:
-          #   development:
-          #     clientId: ${AUTH_GITHUB_CLIENT_ID}
-          #     clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
-          #     enterpriseInstanceUrl: ${AUTH_GITHUB_ENTERPRISE_INSTANCE_URL}
+          github:
+            development:
+              clientId: ${AUTH_GITHUB_CLIENT_ID}
+              clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+              # enterpriseInstanceUrl: ${AUTH_GITHUB_ENTERPRISE_INSTANCE_URL}
+              signIn:
+                resolvers:
+                  # See https://backstage.io/docs/auth/github/provider#resolvers for more resolvers
+                  - resolver: usernameMatchingUserEntityName
           # gitlab:
           #   development:
           #     clientId: ${AUTH_GITLAB_CLIENT_ID}
@@ -430,7 +434,7 @@ backstage:
           #     clientSecret: ${AUTH_ATLASSIAN_CLIENT_SECRET}
           #     scope: ${AUTH_ATLASSIAN_SCOPES}
           # myproxy: {}
-          guest: {}
+          # guest: {}
 
       costInsights:
         engineerCost: 200000
