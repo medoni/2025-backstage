@@ -14,6 +14,10 @@ backstage:
       pullPolicy: Always
     revisionHistoryLimit: 0
     extraEnvVars:
+    - name: APP_BASEURL
+      value: http://backstage.mycluster.localhost
+    - name: BACKEND_BASEURL
+      value: http://backstage.mycluster.localhost
     - name: BACKEND_DATABASE_PG_HOST
       value: postgres
     - name: BACKEND_DATABASE_PG_PORT
@@ -46,17 +50,3 @@ backstage:
         secretKeyRef:
           name: backstage-secrets
           key: AUTH_GITHUB_CLIENT_SECRET
-
-    appConfig:
-      app:
-        baseUrl: http://backstage.mycluster.localhost
-
-      backend:
-        baseUrl: http://backstage.mycluster.localhost
-        database:
-          client: pg
-          connection:
-            host: postgres
-            port: 5432
-            user: ${POSTGRES_USER}
-            password: ${POSTGRES_PASSWORD}
