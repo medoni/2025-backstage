@@ -32,12 +32,12 @@ backstage:
           port: 7007
         database:
           client: pg
+          database: backstage-default
         connection:
           host: postgres
           port: 5432
           user: ${POSTGRES_USER}
-          password: ${POSTGRES_PASSWORD}
-          database: backstage-default
+          password: ${POSTGRES_PASSWORD}          
 
         cors:
           origin: http://localhost:3000
