@@ -1,0 +1,14 @@
+{{ if .Values.dind.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dind-storage
+spec:
+  storageClassName: storage-dind
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2G
+  storageClassName: local-path
+{{ end }}

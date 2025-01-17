@@ -1,0 +1,11 @@
+{{ if .Values.dind.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: dind
+spec:
+  selector:
+    app: dind
+  ports:
+    - port: {{ .Values.dind.service.port }}
+{{ end }}

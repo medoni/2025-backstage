@@ -1,3 +1,24 @@
+
+# Configuration for DinD (Docker in Docker)
+dind:
+  enabled: true
+  image: 
+    repository: docker
+    tag: "20.10.10-dind"
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 2375
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+
+# Configurations for backstage-Sub-Chart
 backstage:
   ingress:
     enabled: true
