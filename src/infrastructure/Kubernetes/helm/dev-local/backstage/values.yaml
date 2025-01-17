@@ -72,11 +72,6 @@ backstage:
           name: backstage-secrets
           key: AUTH_GITHUB_CLIENT_SECRET
     
-    extraVolumeMounts:
-    - mountPath: /var/run/docker.sock
-      name: docker-sock
-    extraVolumes:
-    - name: docker-sock
-      hostPath:
-        path: /var/run/docker.sock
+    - name: DOCKER_HOST
+      value: "tcp://dind:2375"
     
