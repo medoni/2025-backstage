@@ -5,6 +5,7 @@ metadata:
   name: dind
 spec:
   replicas: 1
+  revisionHistoryLimit: 0
   selector:
     matchLabels:
       app: dind
