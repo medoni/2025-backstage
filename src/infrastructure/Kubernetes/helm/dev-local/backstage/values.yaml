@@ -8,7 +8,7 @@ dind:
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP
-    port: 2376
+    port: 2375
   resources:
     requests:
       memory: "256Mi"
@@ -73,5 +73,5 @@ backstage:
           key: AUTH_GITHUB_CLIENT_SECRET
     
     - name: DOCKER_HOST
-      value: "tcp://dind:2376"
+      value: "tcp://dind:2375"
     
