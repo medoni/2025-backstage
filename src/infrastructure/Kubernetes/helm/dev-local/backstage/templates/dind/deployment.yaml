@@ -19,11 +19,11 @@ spec:
         imagePullPolicy: "{{ .Values.dind.image.pullPolicy }}"
         securityContext:
           privileged: true
-        ports:
-        - name: dind-con-port
-          containerPort: {{ .Values.dind.service.port }}
-          hostPort: 2375
-          protocol: TCP
+        # ports:
+        # - name: dind-con-port
+        #   containerPort: {{ .Values.dind.service.port }}
+        #   hostPort: 2375
+        #   protocol: TCP
         command: ["dockerd", "--host", "tcp://127.0.0.1:2375"]
         volumeMounts:
         - name: docker-tls-certdir
