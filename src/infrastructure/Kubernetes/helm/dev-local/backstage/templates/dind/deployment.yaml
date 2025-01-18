@@ -31,6 +31,8 @@ spec:
         - name: dind-storage
           mountPath: /var/lib/docker
       volumes:
+      - name: docker-tls-certdir
+        emptyDir: {}
       - name: dind-storage
         persistentVolumeClaim:
           claimName: dind-storage
