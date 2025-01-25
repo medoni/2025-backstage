@@ -1,0 +1,6 @@
+# Custom Dictionary Words
+dind
+traefik
+certdir
+mycluster
+medoni

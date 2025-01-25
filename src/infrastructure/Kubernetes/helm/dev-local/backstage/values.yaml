@@ -1,7 +1,7 @@
 
 # Configuration for DinD (Docker in Docker)
 dind:
-  enabled: true
+  enabled: false
   image: 
     repository: docker
     tag: "27.5.0-dind-alpine3.21"
@@ -35,6 +35,8 @@ backstage:
       pullPolicy: IfNotPresent
     revisionHistoryLimit: 0
     extraEnvVars:
+    - name: LOG_LEVEL
+      value: debug # todo, remove
     - name: APP_BASEURL
       value: http://backstage.mycluster.localhost
     - name: BACKEND_BASEURL
